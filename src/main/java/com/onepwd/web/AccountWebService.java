@@ -20,7 +20,7 @@ public class AccountWebService {
     @GET
     @Path("alive")
     public String alive() {
-        return WebUtils.createSuccessJSON();
+        return WebUtils.createErrorJSON("lalalalal");
     }
 
 
