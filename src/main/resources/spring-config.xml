@@ -25,5 +25,24 @@
         <property name="testOnReturn" value="false"/>
     </bean>
 
+    <bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
+        <property name = "dataSource" ref="dataSource"/>
+    </bean>
 
+    <bean id="tokenStorage" class="com.onepwd.dao.TokenDao">
+        <property name="template" ref="jdbcTemplate"></property>
+    </bean>
+
+    <bean id="authRequestFilter" class="com.onepwd.web.AuthRequestFilter">
+        <property name="tokenStorage" ref="tokenStorage"></property>
+    </bean>
+
+    <bean id="accountDao" class="com.onepwd.dao.AccountDao">
+        <property name="template" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="accountWebService" class="com.onepwd.web.AccountWebService">
+        <property name="accountDao" ref="accountDao"/>
+        <property name="tokenStorage" ref="tokenStorage"/>
+    </bean>
 </beans>

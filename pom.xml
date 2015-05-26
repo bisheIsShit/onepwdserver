@@ -30,6 +30,13 @@
     </dependency>
 
       <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>${org.log4j.version}</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-core</artifactId>
           <version>${org.springframework.version}</version>

@@ -12,7 +12,7 @@ import org.glassfish.jersey.server.ServerProperties;
 public class OnepwdApplication extends ResourceConfig {
 
     public OnepwdApplication() {
-        super(AccountWebService.class);
+        super(AccountWebService.class, AuthRequestFilter.class);
 //        WebUtils.isDev = false;
         //Map<String, Object> properties = new HashMap<String, Object>();
         //properties.put(ServerProperties.MONITORING_STATISTICS_MBEANS_ENABLED, true);

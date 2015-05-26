@@ -5,11 +5,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 import java.util.Map;
+import com.onepwd.entity.Key;
 
 /**
  * Created by fanngyuan on 4/15/14.
  */
-public abstract class BaseDao<T extends com.onepwd.entity.Key,PK extends Key> {
+public abstract class BaseDao<T extends Key,PK extends Key> {
     JdbcTemplate template;
 
     public JdbcTemplate getTemplate() {
