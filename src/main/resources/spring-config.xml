@@ -41,8 +41,13 @@
         <property name="template" ref="jdbcTemplate"/>
     </bean>
 
+    <bean id="infoDao" class="com.onepwd.dao.InfoDao">
+        <property name="template" ref="jdbcTemplate"/>
+    </bean>
+
     <bean id="accountWebService" class="com.onepwd.web.AccountWebService">
         <property name="accountDao" ref="accountDao"/>
         <property name="tokenStorage" ref="tokenStorage"/>
+        <property name="infoDao" ref="infoDao"/>
     </bean>
 </beans>

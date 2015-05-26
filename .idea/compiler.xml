@@ -25,7 +25,9 @@
         <module name="onepwdserver" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="onepwdserver" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

@@ -27,8 +27,8 @@ public class AccountDao extends BaseDao<Account, IntPK> {
     private static final String delete = "delete from account where uid = ?";
     private static final String getWithMail = "select uid, name from account where name = ?";
     private static final String update = "update account set name=?, password=? where uid=?";
-    private static final String getWithPassword = "select uid, name, password from account where uid = ?, password = ?";
-
+    private static final String getWithPassword = "select uid, name, password from account where uid = ? and password = ?";
+    private static final String getWithPasswordByName = "select uid, name, password from account where name = ? and password = ?";
     @Override
     public Account add(final Account account) {
         try {
@@ -90,6 +90,15 @@ public class AccountDao extends BaseDao<Account, IntPK> {
         }
     }
 
+    public Account getWithPassword(String name, String password) {
+        try {
+            return getTemplate().queryForObject(getWithPasswordByName, new AccountInfoWithPasswordRowMapper(), name, password);
+        } catch (EmptyResultDataAccessException e) {
+            logger.warn(e.getMessage());
+            return null;
+        }
+    }
+
     public Account getWithPassword(Account account) {
         try {
             return getTemplate().queryForObject(getWithPassword, new AccountInfoWithPasswordRowMapper(), account.getId(), account.getPassword());
@@ -118,6 +127,6 @@ class AccountInfoWithPasswordRowMapper implements RowMapper<Account> {
         account.setId(resultSet.getInt("uid"));
         account.setUserName(resultSet.getString("name"));
         account.setPassword(resultSet.getString("password"));
-        return null;
+        return account;
     }
 }

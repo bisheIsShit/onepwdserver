@@ -6,7 +6,7 @@ import com.onepwd.dao.TokenDao;
 import com.onepwd.entity.StringPK;
 import com.onepwd.entity.UserToken;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +24,7 @@ import java.util.*;
  */
 public class AuthRequestFilter implements ContainerRequestFilter{
 
-//    private static final Logger logger = Logger.getLogger(AuthRequestFilter.class);
+    private static final Logger logger = Logger.getLogger(AuthRequestFilter.class);
 
     @Autowired
     private TokenDao tokenStorage;
@@ -77,7 +77,7 @@ public class AuthRequestFilter implements ContainerRequestFilter{
             return;
         }
 
-//        logger.info("access_token is "+token+" user_id is "+userToken.getUserId());
+        logger.info("access_token is "+token+" user_id is "+userToken.getUserId());
         containerRequestContext.getHeaders().add("uid", String.valueOf(userToken.getUserId()));
     }
 }
