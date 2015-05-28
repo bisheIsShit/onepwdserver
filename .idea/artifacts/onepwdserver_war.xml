@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="onepwdserver:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="onepwdserver.war">
-      <element id="artifact" artifact-name="onepwdserver:war exploded" />
-    </root>
-  </artifact>
-</component>
