@@ -133,15 +133,16 @@ public class AccountWebService {
     }
 
     @POST
-    @Path("set")
-    public String setInfo(@HeaderParam("uid") long uid, @FormParam("key") String key, @FormParam("value") String value) {
+    @Path("set_cipher")
+    public String setInfo(@HeaderParam("uid") long uid, @FormParam("value") String value) {
 
         return WebUtils.createSuccessJSON();
     }
 
     @GET
-    @Path("get")
-    public String getInfo(@HeaderParam("uid") long uid, @QueryParam("key") String key) {
+    @Path("get_cipher")
+    public String getInfo(@HeaderParam("uid") long uid) {
+
         return WebUtils.createSuccessJSON();
     }
 
